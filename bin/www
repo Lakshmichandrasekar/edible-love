@@ -15,7 +15,7 @@ var express = require('express');
 global.app = express(); 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port); 
-global.AdminUrl = "https://edible-love-production.up.railway.app/";
+global.AdminUrl = "https://edible-love-production.up.railway.app";
 //global.AdminUrl = "http://localhost:"+port;
 console.log("http://localhost:"+port)
 /**
