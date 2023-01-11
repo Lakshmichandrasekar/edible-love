@@ -140,6 +140,7 @@ const productslist = catchAsync(async(req, res) => {
                 "name" : allRecord[i].name,
                 "image_name" : allRecord[i].image_name,
                 "Description" : allRecord[i].Description,
+                "method" : allRecord[i].method,
                 "Short_description" : allRecord[i].Short_description,
                 "video_url" : allRecord[i].video_url,
                 "status" : allRecord[i].status
@@ -153,7 +154,7 @@ const productslist = catchAsync(async(req, res) => {
 const addproductdetail = catchAsync(async (req, res) => {
     let values = req.body;
     console.log(values);
-    var url  = 'https://edible-love-production.herokuapp.com/'; 
+    var url  = 'https://edible-love-production.up.railway.app/'; 
     if (values.name != '' && values.name != null && values.name != undefined) 
     {
         var Previousproduct = await product.findOne().sort('-id').lean().exec(); 
@@ -178,6 +179,7 @@ const addproductdetail = catchAsync(async (req, res) => {
             category_id: values.category_id,
             name: values.name,
             Description:values.Description,
+            method:values.method,
             Short_description:values.Short_description,
             video_url:values.video_url,  
             createdAt: new Date(),
@@ -231,6 +233,7 @@ const updateproductdetails = catchAsync(async(req, res) => {
             "name" : allRecord.name,
             "image_name" : allRecord.image_name,
             "Description" : allRecord.Description,
+            "method" : allRecord.method,
             "Short_description" : allRecord.Short_description,
             "video_url" : allRecord.video_url,
             "status" : allRecord.status,
@@ -250,7 +253,7 @@ const updateproductdetails = catchAsync(async(req, res) => {
 
 const updateproductdetailpost = catchAsync(async (req, res) => {
     let values = req.body;
-    var url  = 'https://edible-love-production.herokuapp.com'; 
+    var url  = 'https://edible-love-production.up.railway.app'; 
     if (values.name != '' && values.name != null && values.name != undefined) 
     {
         
@@ -280,6 +283,7 @@ const updateproductdetailpost = catchAsync(async (req, res) => {
                 image:images,
                 image_name: image_name,
                 Description:values.Description,
+                method:values.method,
                 Short_description:values.Short_description,
                 video_url:values.video_url,
             }

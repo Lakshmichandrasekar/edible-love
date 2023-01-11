@@ -33,66 +33,7 @@
 	<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
 	<script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.colVis.min.js"></script>
-  <script src="https://ckeditor.com/latest/ckeditor.js"></script>
-  <script>
-    $('.select2').select2();
-  
-    if ($("#editor1").length != 0) {
-      CKEDITOR.replace('editor1');
-    }
-    if ($("#editor2").length != 0) {
-      CKEDITOR.replace('editor2');
-    }
-    if ($("#editor").length != 0) {
-      CKEDITOR.replace('editor');
-  
-      CKEDITOR.editorConfig = function(config) {
-        config.toolbar = [{
-            name: 'document',
-            items: ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']
-          },
-          {
-            name: 'clipboard',
-            items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']
-          },
-          {
-            name: 'editing',
-            items: ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt']
-          },
-          '/',
-          {
-            name: 'basicstyles',
-            items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat']
-          },
-          {
-            name: 'paragraph',
-            items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language']
-          },
-          {
-            name: 'links',
-            items: ['Link', 'Unlink', 'Anchor']
-          },
-          {
-            name: 'insert',
-            items: ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak']
-          },
-          '/',
-          {
-            name: 'styles',
-            items: ['Styles', 'Format', 'Font', 'FontSize']
-          },
-          {
-            name: 'colors',
-            items: ['TextColor', 'BGColor']
-          },
-          {
-            name: 'tools',
-            items: ['Maximize', 'ShowBlocks']
-          }
-        ];
-      };
-    }
-  </script>
+   
   <script type="text/javascript">
     $('.data_table').DataTable({
       oSearch:
@@ -134,5 +75,31 @@
     
     
   </script>
+
+  
+<script src="https://ckeditor.com/latest/ckeditor.js"></script>
+	
+<script>
+    CKEDITOR.replace('editor'); 
+    CKEDITOR.replace('editor1'); 
+    CKEDITOR.replace('editor2'); 
+
+    CKEDITOR.editorConfig = function (config) {
+        config.toolbar = [
+            {name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt']},
+            '/',
+            {name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat']},
+            {name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language']},
+            {name: 'links', items: ['Link', 'Unlink', 'Anchor']},
+            {name: 'insert', items: ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak']},
+            '/',
+            {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
+            {name: 'colors', items: ['TextColor', 'BGColor']},
+            {name: 'tools', items: ['Maximize', 'ShowBlocks']}
+        ];
+    };
+</script>
   </body>
 </html>

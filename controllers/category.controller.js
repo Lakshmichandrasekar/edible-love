@@ -66,7 +66,7 @@ const categorydetails = catchAsync(async (req, res) => {
 
 const addcategory = catchAsync(async (req, res) => {
     let values = req.body;
-    var url  = 'https://edible-love-production.herokuapp.com/'; 
+    var url  = 'https://edible-love-production.up.railway.app/'; 
     if (values.name != '' && values.name != null && values.name != undefined) 
     {
         var Previouscategory = await category.findOne().sort('-id').lean().exec(); 

@@ -8,6 +8,7 @@ var customerSchema = new Schema({
     image: { type: String, default: "", required:false}, 
     image_name: { type: String, default: "", required:false}, 
     Description: { type: String, default: "", required:false}, 
+    method: { type: String, default: "", required:false}, 
     Short_description: { type: String, default: "", required:false}, 
     video_url: { type: String, default: "", required:false}, 
     status :{type :Number,default: 0, required:false},
