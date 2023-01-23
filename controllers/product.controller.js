@@ -20,6 +20,7 @@ const productdetails = catchAsync(async (req, res) => {
                     "name" : Result[i].name,
                     "image" : Result[i].image,
                     "Description" : Result[i].Description,
+                    "method" : Result[i].method,
                     "Short_description" : Result[i].Short_description,
                     "video_url" : Result[i].video_url,
                     "status" : Result[i].status
