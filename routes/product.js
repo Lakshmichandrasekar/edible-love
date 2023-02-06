@@ -40,6 +40,7 @@ const imageUpload = multer({
 
 router.get('/productdetails', productcontroller.productdetails); 
 router.post('/addproduct',upload.fields([{name:'image',maxCount: 1}]),productcontroller.addproduct); 
+router.get('/listproduct/:id',productcontroller.listproduct); 
 
 
 /** Node backend page section **/

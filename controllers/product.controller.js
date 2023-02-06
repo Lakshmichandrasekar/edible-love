@@ -116,6 +116,52 @@ const addproduct = catchAsync(async (req, res) => {
     }
 });
 
+const listproduct = catchAsync(async (req, res) => {
+ 
+    product.find({id:req.params.id}).lean().exec().then(async (Result) => {
+        if (Result && Result.length > 0) {
+            var newdata = new Array();
+            for(let i=0; i<Result.length; i++ )
+            {
+                var categoryname = await category.findOne({"status":0,id:Result[i].category_id}).sort('id').lean().exec();
+                let Data =  {
+                    "id" : Result[i].id,
+                    "category_id" : categoryname.name,
+                    "name" : Result[i].name,
+                    "image" : Result[i].image,
+                    "Description" : Result[i].Description,
+                    "method" : Result[i].method,
+                    "Short_description" : Result[i].Short_description,
+                    "video_url" : Result[i].video_url,
+                    "status" : Result[i].status
+                };
+                newdata.push(Data);
+            }
+            res.send({
+                code: 200,
+                success: true,
+                message: "Data Retrieved Success.",
+                data: newdata,
+                timestamp: new Date()
+            })
+        } else {
+            res.send({
+                code: 404,
+                success: false,
+                message: "No Records Found.",
+                timestamp: new Date()
+            });
+        }
+    }).catch((err) => {
+        res.send({
+            code: 502,
+            success: false,
+            message: "DATABASE_ERROR.",
+            timestamp: new Date()
+        });
+    })
+});
+
 const productsadd = catchAsync(async(req, res) => {
     var action = 'Products Add';
     res.set('content-type' , 'text/html; charset=mycharset'); 
@@ -328,6 +374,7 @@ function isEmpty(obj) {
 module.exports = {
     productdetails,
     addproduct,
+    listproduct,
     productsadd,
     productslist,
     addproductdetail,
