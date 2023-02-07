@@ -310,19 +310,20 @@ const updateproductdetailpost = catchAsync(async (req, res) => {
             id:req.params.id
         };
         var Previouscategory = await product.findOne(query).sort('-id').lean().exec();
-      
+            let images ='';
+            let image_name ='';
             if(req.file != '' && req.file != null && req.file != undefined)
             {
                 if(req.file.filename && req.file.filename && req.file.filename.length > 0)
                 {
-                    var images = url +req.file.filename;
-                    var image_name =  req.file.filename;
+                     images = url +req.file.filename;
+                     image_name =  req.file.filename;
                 }
             }
             else
             {
-                var images = Previouscategory.image;
-                var image_name =  Previouscategory.image_name;
+                 images = Previouscategory.image;
+                 image_name =  Previouscategory.image_name;
             }
        
         let changes = {
