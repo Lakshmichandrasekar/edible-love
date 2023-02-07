@@ -311,7 +311,7 @@ const updateproductdetailpost = catchAsync(async (req, res) => {
         };
         var Previouscategory = await product.findOne(query).sort('-id').lean().exec();
             let images ='';
-            let image_name = ''
+            let image_name = '';
             if(req.file != '' && req.file != null && req.file != undefined)
             {
                 if(req.file.filename && req.file.filename && req.file.filename.length > 0)
