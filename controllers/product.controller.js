@@ -7,8 +7,17 @@ var category = require('../models/category');
 
 
 const productdetails = catchAsync(async (req, res) => {
- 
-    product.find({"status":0}).lean().exec().then(async (Result) => {
+    let values = req.body;
+    let query = {};
+    if(values.hasOwnProperty('category_id') !='' && values.category_id !=undefined)
+    {
+        query.category_id = values.category_id;     
+    }
+    else
+    {
+        query.status = 0;
+    }
+    product.find(query).lean().exec().then(async (Result) => {
         if (Result && Result.length > 0) {
             var newdata = new Array();
             for(let i=0; i<Result.length; i++ )
